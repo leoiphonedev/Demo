@@ -60,22 +60,10 @@
          gridView.backgroundColor = [UIColor yellowColor];
         }
         gridView.layer.cornerRadius = 5.0;
-       // gridView.layer.shadowOffset = CGSizeMake(5, 5);
         gridView.layer.shadowOffset = CGSizeMake(0, -2);
         gridView.layer.shadowRadius = 2;
         gridView.layer.shadowOpacity = 0.5;
         gridView.tag = i +1;
-       // gridView.transform = CGAffineTransformScale(CGAffineTransformIdentity, 2, 2);
-       // gridView.transform = CGAffineTransformMakeScale(sclaleXpos, scaleYPos);
-
-        
-        
-        
-       /* CATransform3D rotationAndPerspectiveTransform = CATransform3DIdentity;
-        rotationAndPerspectiveTransform.m34 = 1.0 / -1000.0;
-        rotationAndPerspectiveTransform = CATransform3DRotate(rotationAndPerspectiveTransform, M_PI * 1, 1.0f, 0.0f, 0.0f);*/
-       // gridView.layer.transform = rotationAndPerspectiveTransform;
-        
         
         UIPanGestureRecognizer *panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(dragged:)];
         [panRecognizer setMinimumNumberOfTouches:1];
@@ -102,63 +90,6 @@
 }
 
 
-//-(void)move:(UIPanGestureRecognizer *)gesture
-//{
-//    UIView *vw = [gesture view];
-//    
-//    CGPoint translatedPoint = [(UIPanGestureRecognizer*)gesture translationInView:self.view];
-//    if([(UIPanGestureRecognizer*)gesture state] == UIGestureRecognizerStateBegan)
-//    {
-//        firstX = vw.center.x;
-//        firstY = vw.center.y;
-//    }
-//    translatedPoint = CGPointMake(firstX+translatedPoint.x, firstY+translatedPoint.y);
-//    [vw setCenter:translatedPoint];
-//
-//  
-//
-//
-//    if(gesture.state == UIGestureRecognizerStateEnded)
-//    {
-//        //All fingers are lifted.
-//        if (translatedPoint.x < 0 || translatedPoint.x > self.view.frame.size.width) {
-//            
-//            //move view out of the screen horizontally
-//            if (translatedPoint.x < 0) {
-//                [self moveViewOutOfScreen:vw toPosition:CGPointMake(-self.view.frame.size.width,  translatedPoint.y)];
-//            }
-//            else {
-//                [self moveViewOutOfScreen:vw toPosition:CGPointMake(self.view.frame.size.width+100,  translatedPoint.y)];
-//                
-//            }
-//            
-//            UIView *view = [self.view viewWithTag:vw.tag - 1];
-//            view.userInteractionEnabled = TRUE;
-//            frameOfTopCard = view.frame;
-//            
-//            /*for (UIView *vw in [contentView subviews]) {
-//                CGFloat xScale = vw.transform.a;
-//                vw.transform = CGAffineTransformMakeScale(xScale + 0.025, 1.0);
-//            }*/
-//        }
-//        else if (translatedPoint.y < 0 || translatedPoint.y > self.view.frame.size.height) {
-//            //move view out of the screen vertically
-//            [self moveViewOutOfScreen:vw toPosition:CGPointMake(translatedPoint.x,  translatedPoint.y)];
-//            frameOfTopCard = [self.view viewWithTag:vw.tag - 1].frame;
-//        }
-//        else {
-//            //move to original position
-//            [self moveViewOutOfScreen:vw toPosition:CGPointMake(frameOfTopCard.origin.x ,  frameOfTopCard.origin.y)];
-//        }
-//    }
-//    
-//    
-//    
-//
-//}
-//
-//
-//
 -(void)moveViewOutOfScreen:(UIView *)view toPosition:(CGPoint)point{
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         view.frame = CGRectMake(point.x, point.y, view.frame.size.width, view.frame.size.height);
@@ -211,10 +142,7 @@
                 view.userInteractionEnabled = TRUE;
                 frameOfTopCard = view.frame;
                 
-                /*for (UIView *vw in [contentView subviews]) {
-                 CGFloat xScale = vw.transform.a;
-                 vw.transform = CGAffineTransformMakeScale(xScale + 0.025, 1.0);
-                 }*/
+               
             }
             else if (vw.center.y < 0 || vw.center.y > self.view.frame.size.height) {
                 //move view out of the screen vertically
@@ -249,8 +177,7 @@
     } else if (distance <= 0) {
        // self.overlayView.mode = GGOverlayViewModeLeft;
     }
-   // CGFloat overlayStrength = MIN(fabsf(distance) / 100, 0.4);
-   // self.overlayView.alpha = overlayStrength;
+   
 }
 
 - (void)resetViewPositionAndTransformations:(UIView *)view
