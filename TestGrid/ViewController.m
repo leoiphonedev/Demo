@@ -148,6 +148,7 @@
                 //move view out of the screen vertically
                 [self moveViewOutOfScreen:vw toPosition:CGPointMake(vw.center.x,  vw.center.y)];
                 frameOfTopCard = [self.view viewWithTag:vw.tag - 1].frame;
+                
             }
             else {
 
