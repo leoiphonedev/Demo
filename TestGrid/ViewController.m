@@ -151,7 +151,6 @@
                 
             }
             else {
-
             [self resetViewPositionAndTransformations:vw];
             }
             break;
